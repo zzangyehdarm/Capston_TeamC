@@ -1,0 +1,58 @@
+/* .homeBox{
+    margin: 5% 0 0 5%;
+} */
+.homeButton{
+    border-width: 0.1px;
+    border-radius: 3px;
+    background-color: white;
+}
+.nav{
+
+}
+
+.descriptionBox{
+    height: 91.1vh;
+    background: linear-gradient(90deg, rgba(228, 228, 228, 0) 0%, #7E7E7E 100%);
+    display: flex;
+    flex-direction: column;
+    
+}
+.descriptionContents{
+    margin: 0 0;
+    padding: 10% 0 0 5%;
+    font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 300;
+font-size: 20px;
+line-height: 200%;
+}
+.buttonBox{
+    margin: 0 0;
+    padding: 5% 0 0 5% ;
+}
+.continueWriteButton{
+    margin: 0 5% 0 0;
+    width: 10%;
+    padding: 1%;
+    border-radius: 10px;
+    border-width: 1px;
+    font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 15px;
+
+}
+.newWriteButton{
+    padding: 1%;
+    width: 10%;
+    background-color: rgb(85, 133, 91);
+    color: white;
+    border-radius: 10px;
+    border-width: 1px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 15px;
+}

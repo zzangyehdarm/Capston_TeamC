@@ -1,0 +1,63 @@
+
+.continueBanner{
+
+padding: 2em;
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 2em;
+/* identical to box height, or 53px */
+text-align: center;
+letter-spacing: -0.03em;
+
+color: #FFFFFF;
+background: radial-gradient(closest-side at 50% 50%,rgb(85, 133, 91),white,white); 
+text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* 리스트 Btn
+
+텍스트 자율입력형 버튼은 ‘텍스트 입력’ 우측 패널에서 가능
+*/
+
+/* Auto layout */
+.inventoryHead{
+    display: flex;
+    padding: 0 0 0 15% ;
+}
+.tempSaveInventory{
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 12px;
+gap: 10px;
+
+
+background: #FFFFFF;
+border-radius: 6px;
+
+}
+
+.continueSearch{
+box-sizing: border-box;
+
+
+background: #FFFFFF;
+border: 1px solid #55855B;
+border-radius: 70px;
+margin: 0 0 0 55%;
+}
+
+.postBox{
+    margin: 2%;
+    display: flex;
+    flex-direction: row;
+}
+
+.postBoxTitle{
+    padding: 0 0 0 20% ;
+}
+
+.postBoxDate{
+    margin: 0 0 0 50%;
+}

@@ -1,0 +1,35 @@
+/* DataRangePicker */
+.rdrMonthAndYearWrapper {
+    background-color: #6400ff;
+    border-radius: 4px 4px 0px 0px;
+  }
+  .rdrMonthPicker,
+  .rdrYearPicker {
+    background-color: white;
+    border-radius: 3px;
+  }
+  .rdrNextPrevButton,
+  .rdrPprevButton {
+    background-color: #6400ff !important;
+  }
+  .rdrPprevButton i {
+    border-width: 4px 6px 4px 4px;
+    border-color: transparent white transparent transparent !important;
+    transform: translate(-3px, 0px);
+  }
+  .rdrNextButton i {
+    margin: 0 0 0 7px;
+    border-width: 4px 4px 4px 6px;
+    border-color: transparent transparent transparent white !important;
+    transform: translate(3px, 0px);
+  }
+  .rdrDayToday .rdrDayNumber span:after {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: none !important;
+  }
