@@ -1,25 +1,36 @@
 import React, { useState } from "react";
-import './styles/Diary.css';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
+
+import DatePicker from 'react-datepicker';
 import axios from 'axios';
 
-const backend = 0;
-// https://onethejay.tistory.com/195 출처 남기기
-function Diary() {
 
+
+import 'react-datepicker/dist/react-datepicker.css';
+import '../styles/Diary.css';
+
+
+
+const backend = 0;
+
+function Diary() {
+  const [diary, setDiary] = useState({
+    title: '',
+    contents: '',
+    date: '',
+  });
 
   const [selectedDate, setSelectedDate] = useState(new Date());
   const navigate = useNavigate();
 
-  const [diary, setDiary] = useState({
-    title: '',
-    user: '',
-    contents: '',
-  });
+  function handleSelect(date) {
+    setSelectedDate(date);
+    setDiary({
+      date: date,
+    })
+  }
 
-  const { title, user, contents } = diary; 
+  const { title, contents, date } = diary; 
 
   const onChange = (event) => {
     const { value, name } = event.target;
@@ -29,6 +40,7 @@ function Diary() {
     });
   };
 
+  
   const saveDiary = async () => {
     await axios.post(`${backend}/v1/posts`, diary).then((res) => {
       alert('등록되었습니다.');
@@ -37,6 +49,7 @@ function Diary() {
     .catch(console.log(diary));
   };
 
+  
   const backToList = () => {
     navigate('/diary');
   };
@@ -51,8 +64,9 @@ function Diary() {
           <div className="datePick">
             <DatePicker
               selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
+              onChange={(date) => handleSelect(date)}
               dateFormat="yyyy-MM-dd"
+
             />
           </div>
           <div className="saveBox">
@@ -71,3 +85,6 @@ function Diary() {
 }
 
 export default Diary;
+
+
+// https://onethejay.tistory.com/195 출처 남기기

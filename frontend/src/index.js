@@ -1,13 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
-import Diary from './Diary';
-import DiaryContinue from './DiaryContinue';
-import Main from './Main';
-import ReactDatePicker from './Calendar';
 import reportWebVitals from './reportWebVitals';
-import Nav from './Nav';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

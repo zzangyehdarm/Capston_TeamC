@@ -1,7 +1,10 @@
-import './styles/DiaryContinue.css';
+
 import React, { useEffect,useState } from "react";
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+import axios from 'axios';
+
+import '../styles/DiaryContinue.css';
 
 //https://onethejay.tistory.com/194
 function DiaryContinue() {

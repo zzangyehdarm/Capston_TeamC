@@ -6,12 +6,12 @@ const Tab = ({ label, activeTab, onClick }) => {
   };
 
   return (
-    <div
+    <button
       className={`tab ${activeTab === label ? 'active' : ''}`}
       onClick={handleClick}
     >
       {label}
-    </div>
+    </button>
   );
 };
 

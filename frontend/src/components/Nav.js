@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
-import './styles/Nav.css';
-import { useNavigate } from "react-router-dom";
+
+import '../styles/Nav.css';
+
 
 function Nav(){
     const movePage = useNavigate();

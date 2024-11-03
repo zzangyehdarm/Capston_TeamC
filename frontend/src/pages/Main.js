@@ -1,9 +1,13 @@
 import React, { useState, useRef} from "react";
-import './styles/Main.css';
-import './styles/Diary.css';
+import { useNavigate } from "react-router-dom";
+
+import testGet from '../utils/test';
+
+import '../styles/Main.css';
+import '../styles/Diary.css';
 import './Diary';
 import Diary from './Diary';
-import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -35,6 +39,7 @@ function Main() {
                     <button className="newWriteButton" onClick={modalOpen}>새로 쓰기</button>
                     {modalIsOpen && <Diary /> }
                 </div>
+                <button onClick={testGet}> test </button>
             </div>
         </div>
     );
