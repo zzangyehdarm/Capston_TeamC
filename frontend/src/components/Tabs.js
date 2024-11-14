@@ -9,6 +9,7 @@ const Tabs = ({ children }) => {
   };
 
   return (
+    <div>
     <div className="tabs">
       {children.map((child) => (
         <Tab
@@ -18,7 +19,8 @@ const Tabs = ({ children }) => {
           activeTab={activeTab}
         />
       ))}
-      <div className="tab-content">
+    </div>
+    <div className="tab-content">
         {children.map((child) =>
           child.props.label === activeTab ? child.props.children : null
         )}

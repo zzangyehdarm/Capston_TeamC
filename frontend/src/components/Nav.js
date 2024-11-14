@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import React from 'react';
 
 import '../styles/Nav.css';
@@ -9,15 +10,21 @@ function Nav(){
     function goMain(){
         movePage('/');
       }
+      const activeStyle = {
+        color: "#55855B",
+      };
+      const deactiveStyle = {
+        color: "#535353",
+      };
     return (
         
         <div>
             <div className='nav'>
                 <imageWrap className="logo">Logo</imageWrap>
-                <Link to="/" className="navBarMain">메인 페이지</Link>
-                <Link className="navBarMenu">About Us</Link>
-                <Link to="/analysis" className="navBarMenu">다이어리 분석하기</Link>
-                <Link className="navBarMenu">내 다이어리</Link>
+                <NavLink to="/" className="navBarMain" style={({ isActive }) => (isActive ? activeStyle : deactiveStyle)}>메인 페이지</NavLink>
+                <NavLink className="navBarMenu" style={({ isActive }) => (isActive ? activeStyle : deactiveStyle)}>About Us</NavLink>
+                <NavLink to="/analysis" className="navBarMenu" style={({ isActive }) => (isActive ? activeStyle : deactiveStyle)}>다이어리 분석하기</NavLink>
+                <NavLink className="navBarMenu" style={({ isActive }) => (isActive ? activeStyle : deactiveStyle)}>내 다이어리</NavLink>
             </div>
         </div>
     )

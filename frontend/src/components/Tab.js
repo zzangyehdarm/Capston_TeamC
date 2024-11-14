@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Analysis.css';
 
 const Tab = ({ label, activeTab, onClick }) => {
   const handleClick = () => {
@@ -7,7 +8,7 @@ const Tab = ({ label, activeTab, onClick }) => {
 
   return (
     <button
-      className={`tab ${activeTab === label ? 'active' : ''}`}
+      className={`tab${activeTab === label ? 'Active' : ''}`}
       onClick={handleClick}
     >
       {label}

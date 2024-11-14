@@ -14,3 +14,158 @@
     background: radial-gradient(closest-side at 50% 50%,rgb(85, 133, 91),white,white); 
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
     }
+.tab{
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 19px 25px;
+gap: 10px;
+
+width: 106px;
+height: 42px;
+
+background: #FFFFFF;
+border: 1px solid #83A788;
+box-shadow: 4px 0px 7px rgba(0, 0, 0, 0.18);
+border-radius: 10px 10px 0px 0px;
+
+/* Inside auto layout */
+
+}
+
+.tabActive{/* Frame 7293 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 19px 25px;
+gap: 10px;
+
+width: 106px;
+height: 42px;
+
+background: #83A788;
+border: 1px solid #83A788;
+box-shadow: 4px 0px 7px rgba(0, 0, 0, 0.18);
+border-radius: 10px 10px 0px 0px;
+
+/* Inside auto layout */
+
+}
+.tabs{
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 0 10%;
+}
+.tab-content{
+
+
+}
+.calenderBox{
+    display: flex;
+    align-items: center
+}
+.rdrDateRangePickerWrapper{
+    margin: auto;
+}
+.rdrDefinedRangesWrapper {
+    display: none;
+}
+.rdrDateDisplayWrapper{
+    display: none;
+}
+.chooseButton{
+    /* ▣ 기본 Btn(사각형)
+
+텍스트 자율입력형 버튼은 ‘텍스트 입력’ 우측 패널에서 가능
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5px 10px;
+gap: 10px;
+background: #55855B;
+border-radius: 6px;
+margin: auto;
+color: white;
+font-family: 'Noto Sans';
+font-style: normal;
+}
+.boardList{
+    margin: 1% 0 0 0;
+    display: flex;
+    flex-direction: row;
+}
+.boardListTitle{
+    padding: 0 0 0 21.2% ;
+}
+.boardListDate{
+    margin: 0 0 0 47.6%;
+}
+.buttonComplete{
+/* ▣ 기본 Btn(사각형)
+
+텍스트 자율입력형 버튼은 ‘텍스트 입력’ 우측 패널에서 가능
+*/
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5px 10px;
+gap: 10px;
+
+
+
+height: 34px;
+color:white;
+background: #55855B;
+border-radius: 6px;
+font-family: 'Noto Sans';
+font-style: normal;
+margin: 0 0 0 2%;
+}
+.buttonAll{
+/* ▣ 기본 Btn(사각형)
+
+텍스트 자율입력형 버튼은 ‘텍스트 입력’ 우측 패널에서 가능
+*/
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5px 10px;
+gap: 10px;
+
+
+
+
+background: #FFFFFF;
+border: 1px solid #83A788;
+border-radius: 6px;
+font-family: 'Noto Sans';
+font-style: normal;
+margin: 0 2% 0 0;
+}
+.analysisButtonBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

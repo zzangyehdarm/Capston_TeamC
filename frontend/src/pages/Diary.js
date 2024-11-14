@@ -13,7 +13,7 @@ import '../styles/Diary.css';
 
 const backend = 0;
 
-function Diary() {
+function Diary({ modalClose }) {
   const [diary, setDiary] = useState({
     title: '',
     contents: '',
@@ -58,7 +58,7 @@ function Diary() {
     <div class="diaryBoxBackground">
       <div class="diaryBox">
         <div>
-          <button className="closeButton">닫기</button>
+          <button className="closeButton" onClick={modalClose}>닫기</button>
         </div>
         <div className="diaryDatePlaceTag">
           <div className="datePick">

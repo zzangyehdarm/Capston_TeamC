@@ -36,14 +36,18 @@ class Calendar extends Component {
   render(){
     return (
       <div>
-        <DateRangePicker
-          onChange={this.onRangeChange}
-          months={2}
-          minDate={addDays(new Date(), -300)}
-          maxDate={addDays(new Date(), 900)}
-          direction="horizontal"
-          ranges={[this.state.selection]}
-        />
+        <div className='calenderBox'>
+          <DateRangePicker
+            onChange={this.onRangeChange}
+            months={2}
+            // minDate={addDays(new Date(), -300)}
+            // maxDate={addDays(new Date(), 900)}
+            direction="horizontal"
+            ranges={[this.state.selection]}
+          />
+          
+        </div>
+        <button className='chooseButton'>선택 완료</button>
       </div>
     )
   }

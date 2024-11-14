@@ -12,12 +12,14 @@ import Diary from './Diary';
 
 
 function Main() {
-    const [modalIsOpen, setModalState] = useState(false);
+    const [modal, setModal] = useState(false);
     const movePage = useNavigate();
     function modalOpen() {
-        setModalState(true);
+        setModal(true);
       }
-      
+    function modalClose() {
+        setModal(false);
+      }
 
       function goDiaryContinue(){
         movePage('/diaryContinue');
@@ -37,7 +39,8 @@ function Main() {
                 <div className="buttonBox">
                     <button className="continueWriteButton" onClick={goDiaryContinue}>이어서 쓰기</button>
                     <button className="newWriteButton" onClick={modalOpen}>새로 쓰기</button>
-                    {modalIsOpen && <Diary /> }
+                    {modal && <Diary /> }
+                    {modal && <Diary modalClose={modalClose} />}
                 </div>
                 <button onClick={testGet}> test </button>
             </div>

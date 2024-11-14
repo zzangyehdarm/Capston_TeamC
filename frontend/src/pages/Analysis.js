@@ -1,6 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis } from "recharts";
 import { useNavigate, Link } from "react-router-dom";
-import React, { useEffect, useState, useRef} from "react";
+import React, { useEffect, useState, useRef, setState} from "react";
 import { DateRange } from 'react-date-range';
 import { addDays } from "date-fns"
 
@@ -10,15 +10,19 @@ import axios from 'axios';
 import Tab from '../components/Tab';
 import Tabs from '../components/Tabs';
 import Calendar from '../components/Calendar';
+import BoardData from '../utils/MockBoardData.js';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import "react-date-range/dist/styles.css"; // main style file 
 import 'react-date-range/dist/theme/default.css'; // theme css file  
 import '../styles/Analysis.css';
+import '../styles/DiaryContinue.css';
 
-const backend = "https://0dbf00cc-14b7-4093-839f-3d59b65c48d3.mock.pstmn.io/";
+const flaskbackend = "http://127.0.0.1:5000/predict";
+const backend = "http://127.0.0.1:5000"
 
-async function getCheckboxValue()  {
+var dataResult = '1';
+async function postCheckboxValue()  {
 /*
 체크박스 post_id 불러와서 백엔드로 보냄.
 */
@@ -30,42 +34,63 @@ async function getCheckboxValue()  {
       document.querySelectorAll(query);
   
   // 선택된 목록에서 value 찾기
-  let result = '';
+  let result = {};
   selectedEls.forEach((el) => {
-    result += el.value + ' ';
+    for (var key in el.value) {
+      result["text"] = el.value;
+    }
   });
 
-  await axios.post(`${backend}/`, result).then((res) => {
-    
+  await axios.post(`${flaskbackend}`, result).then((res) => {
+    dataResult = res.data;
+    console.log(dataResult);
   })
-  .catch(console.log());
+  .catch(console.log(result));
 
   // document.getElementById('result').innerText
   //   = result;
 } // https://hianna.tistory.com/430
 
 function GetData() {
-  const [data, setData] = useState({});
-  useEffect(() => {
-    axios.get(backend).then((response)=> {
-      setData(response.data);
-    })
-  }, []);
+  /*
+  백엔드 통신 꺼둠 
+  */
+  // const [data, setData] = useState({});
+  // useEffect(() => {
+  //   axios.get(backend).then((response)=> {
+  //     setData(response.data);
+  //   })
+  // }, []); 
   // const item = (Object.values(data));
-  const item = (Object.values(data)).map((item) => (
+  // 
+  // const item = (Object.values(data)).map((item) => (
     
-    <li key={item.id}>
-      <div>{item.post_id}</div>
-      <input name="post" type="checkbox" value={item.post_id}></input>
-    </li>
+  //   <li key={item.id}>
+  //     <div>{item.post_id}</div>
+  //     <input name="post" type="checkbox" value={item.post_id}></input>
+  //   </li>
+  // ));
+  const item = (BoardData).map((item) => (
+    
+    <div key={item.post_id} className="boardList">
+      <div className="boardListTitle">{item.title}</div>
+      <div className="boardListDate">{item.date}</div>
+      <input name="post" type="checkbox" value={item.content}></input>
+    </div>
   ));
   return item;
 }
 // 출처: https://ymkmoon.github.io/React-06-Voc/
 
 export default function Analysis() {
-
-    
+  const [modal, setModal] = useState(false);
+  function modalOpen() {
+    postCheckboxValue();
+    setModal(true);
+  }
+function modalClose() {
+    setModal(false);
+  }
     // const postAnaylsisPeriod = async () => { // ERD에 date 없음. created_at으로 할거면 글쓰기에 calendar가 필요가 없으니까.
     //   await axios.post(`${backend}/`).then((res) => {
         
@@ -96,13 +121,20 @@ export default function Analysis() {
             
             <div>
               <Tabs>
-                <div label="기간 선택">
+                <div label="기간 선택" >
                   <Calendar/>
                 </div>
-                <div label="일기 선택">
-                  {item}
-                  <button onClick={getCheckboxValue}>hell</button>
-                  <Link to="/analysisgraph" className="navBarMenu">다이어리 분석하기</Link>
+                <div label="일기 선택" >
+                <div className='postBox'>
+                <div className='postBoxTitle'>Title</div>
+                <div className='postBoxDate'>Date</div>
+                  
+                </div>
+                {item}
+                <div className="analysisButtonBox">
+                  <button onClick={postCheckboxValue} className="buttonAll">전체선택</button>
+                  <Link to="/analysisgraph" onClick={modalOpen} state={{'data':dataResult}} className="buttonComplete">선택완료</Link>
+                  </div>
                 </div>
               </Tabs>
             </div>

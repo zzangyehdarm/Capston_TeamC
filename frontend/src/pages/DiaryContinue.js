@@ -31,14 +31,13 @@ function DiaryContinue() {
             <div className='postBox'>
                 <div className='postBoxTitle'>Title</div>
                 <div className='postBoxDate'>Date</div>
-            {/* <ul>
-                {boardList.map((board) => (
-                    // 4) map 함수로 데이터 출력
+                <ul>
+                {/* {boardList.map((board) => (
                     <li key={board.idx}>
                         <Link to={`/board/${board.idx}`}>{board.title}</Link>
                     </li>
-                    ))}
-                </ul> */}
+                    ))} */}
+                </ul>
             </div>
             
             <div className='inventory'></div>
