@@ -1,0 +1,88 @@
+.about-us-container {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #1a1a1a;
+  background-color: #f9f9f9;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.about-section h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.about-section h2 {
+  margin: 0.5rem 0;
+  font-size: 1.8rem;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.about-section p {
+  margin-top: 1rem;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature {
+  max-width: 400px;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #1e88e5;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.footer {
+  margin-top: 3rem;
+  text-align: center;
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 1.5rem 0;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .features {
+      flex-direction: row;
+      justify-content: space-around;
+  }
+}

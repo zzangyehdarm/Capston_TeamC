@@ -33,3 +33,15 @@ flex-grow: 1;
     border: 1px solid #83A788;
     border-radius: 6px;
 }
+
+.analysisStatement{
+    margin: 2% 11.6% 2% 11.6%;
+    border: 1px solid #83A788;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    background: #55855B;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1% 0 2% 0; 
+}

@@ -114,6 +114,26 @@ font-style: normal;
 .boardListDate{
     margin: 0 0 0 47.6%;
 }
+.boardList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0.5% 10%; 
+}
+
+.boardListTitle {
+    flex: 1; 
+    text-align: left; 
+    padding: 0 0 0 13.8% ;
+    margin: 0;
+}
+
+.boardListDate {
+    flex: 1; 
+    text-align: right; 
+    padding: 0 17.2% 0 0; 
+}
 .buttonComplete{
 /* ▣ 기본 Btn(사각형)
 

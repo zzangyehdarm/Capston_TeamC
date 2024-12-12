@@ -4,33 +4,35 @@ import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import axios from 'axios';
 
-
-
 import 'react-datepicker/dist/react-datepicker.css';
 import '../styles/Diary.css';
+import { API } from '../features/config';
 
-
-
-const backend = 0;
-
+const backend = "http://127.0.0.1:3030";
+function timeout(delay) {
+  return new Promise( res => setTimeout(res, delay) );
+}
 function Diary({ modalClose }) {
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [diary, setDiary] = useState({
     title: '',
-    contents: '',
-    date: '',
+    content: '',
+    date: selectedDate.toISOString(),
+    status: 0,
+
   });
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  
   const navigate = useNavigate();
 
   function handleSelect(date) {
     setSelectedDate(date);
     setDiary({
-      date: date,
+      date: date.toISOString(),
     })
   }
 
-  const { title, contents, date } = diary; 
+  const { title, content, date, status } = diary; 
 
   const onChange = (event) => {
     const { value, name } = event.target;
@@ -42,13 +44,34 @@ function Diary({ modalClose }) {
 
   
   const saveDiary = async () => {
-    await axios.post(`${backend}/v1/posts`, diary).then((res) => {
-      alert('등록되었습니다.');
-      navigate('/');
-    })
-    .catch(console.log(diary));
+    const updatedDiary = { 
+      ...diary, 
+      status: 1
+  }; 
+    try {
+        const response = await axios.post(`${backend}/v1/posts`, updatedDiary);
+        alert('등록되었습니다.');
+        console.log(response.data);
+        navigate('/');
+    } catch (error) {
+        console.error(error);
+    }
   };
 
+  const saveDiaryTemp = async () => {
+    const updatedDiary = { 
+      ...diary, 
+      status: 0
+  };
+    try {
+        const response = await axios.post(`${backend}/v1/posts`, updatedDiary);
+        alert('임시로 저장되었습니다.');
+        console.log(response.data);
+        navigate('/');
+    } catch (error) {
+        console.error(error);
+    }
+  };
   
   const backToList = () => {
     navigate('/diary');
@@ -65,19 +88,19 @@ function Diary({ modalClose }) {
             <DatePicker
               selected={selectedDate}
               onChange={(date) => handleSelect(date)}
-              dateFormat="yyyy-MM-dd"
-
             />
           </div>
           <div className="saveBox">
-            <button className="saveTempButton">임시 저장</button>
+            <button className="saveTempButton" onClick={saveDiaryTemp}>임시 저장</button>
             <button className="completeButton" onClick={saveDiary}>작성 완료</button>
           </div>
         </div>
-        <input className="diaryTitle" name="title" placeholder="제목을 입력하세요." onChange={onChange}/>
+        <div onChange={onChange}>
+        <input className="diaryTitle" name="title" placeholder="제목을 입력하세요." />
+        </div>
         <div className = "diaryTextBox" onChange={onChange}>
           <div className="diaryTool"><button>글 도구 들어갈 자리</button></div>
-          <textarea class="diaryText" name="contents" placeholder="내용을 입력하세요."/>
+          <textarea class="diaryText" name="content" placeholder="내용을 입력하세요."/>
         </div>
       </div>
     </div>

@@ -31,10 +31,10 @@ function Main() {
             <div className="descriptionBox">
                 <div className="descriptionContents">
                     <h1>
-                        WECOME TO<br></br>
-                        마음다이어리
+                    당신의 하루는 어땠나요?
                     </h1>
-                    <h5>완전 최고에요</h5>
+                    <h5>하루에 대한 기록을 남겨주시면, ‘마음나침반’이 당신의 마음의 방향을 찾아드릴게요.<br></br>
+                    아래 버튼을 클릭해 오늘 당신의 하루를 기록하고, 간단하게 마음 상태를 알아보세요.</h5>
                 </div>
                 <div className="buttonBox">
                     <button className="continueWriteButton" onClick={goDiaryContinue}>이어서 쓰기</button>
@@ -42,7 +42,6 @@ function Main() {
                     {modal && <Diary /> }
                     {modal && <Diary modalClose={modalClose} />}
                 </div>
-                <button onClick={testGet}> test </button>
             </div>
         </div>
     );

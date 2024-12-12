@@ -6,7 +6,7 @@ import DiaryContinue from './pages/DiaryContinue';
 import Diary from './pages/Diary';
 import Analysis from './pages/Analysis';
 import AnalysisGraph from './pages/AnalysisGraph';
-
+import AboutUs from './pages/AboutUs';
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
                 <Route path={"/diaryContinue"} element={<DiaryContinue />}></Route>
                 <Route path={"/analysis"} element={<Analysis />}></Route>
                 <Route path={"/analysisgraph"} element={<AnalysisGraph />}></Route>
+                <Route path={"/aboutus"} element={<AboutUs />}></Route>
             </Routes>
         </BrowserRouter>
     </div>
