@@ -11,12 +11,18 @@ module.exports = ((sequelize, DataTypes) => {
         },
 
         content: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
 
         status: {
             type: DataTypes.TINYINT(1)
         },
+        date: {
+            type: DataTypes.STRING
+        },
+        title: {
+            type: DataTypes.STRING
+        }
 
     };
 

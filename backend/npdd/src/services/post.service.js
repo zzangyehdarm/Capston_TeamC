@@ -1,40 +1,48 @@
-const {Post, sequelize} = require('../models/index')
-
+const { Post } = require('../models/index');
 
 const createPost = async (data) => {
     return await Post.create({
-        user_id:data.user_id,
-        content:data.content,
-    })
-}
+        user_id: data.user_id,
+        content: data.content,
+        date: data.date,
+        status: data.status,
+        title: data.title,
+    });
+};
 
 const getPost = async (postId) => {
     return await Post.findOne({
-        where:{post_id:postId}
-    })
-}
+        where: { post_id: postId }
+    });
+};
 
-const editPost = async (content,postId) => {
+const editPost = async (data, postId) => {
     return await Post.update({
-        content:content,
-    },{
-        where:{post_id:postId}
-    })
-}
-
+        content: data.content,
+        status: data.status,
+        title: data.title,
+        date: data.date,
+    }, {
+        where: { post_id: postId }
+    });
+};
 
 const deletePost = async (postId) => {
-    return await Post.destory({
-        where:{
-            post_id:postId
+    return await Post.destroy({
+        where: {
+            post_id: postId
         }
-    })
-}
+    });
+};
 
+const getAllPosts = async () => {
+    return await Post.findAll();
+};
 
 module.exports = {
     createPost,
     getPost,
     editPost,
-    deletePost
-}
+    deletePost,
+    getAllPosts
+};

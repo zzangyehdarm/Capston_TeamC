@@ -10,7 +10,7 @@ const envVarSchema = joi.object()
         PORT: joi.number().default(1000),
         
         // serverIp 관련
-        KOBERT_SERVER_URL: joi.string().required(),
+        // KOBERT_SERVER_URL: joi.string().required(),
 
         // sql 관련
         SQL_HOST: joi.string().required(),
@@ -33,7 +33,7 @@ module.exports = {
     port: envVars.PORT,
     
     // serverIp 관련
-    kobertAppServerAddr: envVars.KOBERT_SERVER_URL,
+    // kobertAppServerAddr: envVars.KOBERT_SERVER_URL,
     
     // sql 관련
     sequelize: {
